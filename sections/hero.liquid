@@ -1,0 +1,58 @@
+{{ 'hero.css' | asset_url | stylesheet_tag }}
+
+<div class="hero" style="background-image: url({{ section.settings.background_image | img_url: '2048x2048' }})">
+  <div class="container">
+    <div class="row">
+      {% if section.settings.title != blank %}
+        <div class="col-12">
+          <h1 class="title-large">{{ section.settings.title }}</h1>
+        </div>
+      {% endif %}
+
+      {% if section.settings.subtitle != blank %}
+        <div class="col-12 col-lg-6">
+          <h2 class="title">{{ section.settings.subtitle }}</h2>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero",
+  "class": "hero-section",
+  "limit": 1,
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "info": "Om woorden op een nieuwe regel te zetten, gebruik <br>.",
+      "default": "Peter Riezebos"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Art from a life without brakes. Raw. Bold. Real."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section"
+    }
+  ]
+}
+{% endschema %}
