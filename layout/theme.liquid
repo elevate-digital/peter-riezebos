@@ -3,6 +3,9 @@
   <head>
     {% # Inlined CSS Variables %}
     {% render 'css-variables' %}
+    
+    {{ 'ed-grid.css' | asset_url | stylesheet_tag }}
+    {{ 'fonts.css' | asset_url | stylesheet_tag }}
 
     {% # Load and preload the critical CSS %}
     {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
