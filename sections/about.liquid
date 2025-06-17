@@ -1,0 +1,113 @@
+{{ 'about.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign heading = section.settings.heading_type
+%}
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <{{ heading }} class="title">{{ section.settings.title }}</{{ heading }}>
+      <div class="text">{{ section.settings.text }}</div>
+
+      {% if section.settings.button_primary_text != blank or section.settings.button_secondary_text != blank %}
+        <div class="buttons">
+          {% if section.settings.button_primary_text != blank %}
+            <a href="{{ section.settings.button_link }}" class="button primary">
+              {{- section.settings.button_primary_text -}}
+            </a>
+          {% endif %}
+          {% if section.settings.button_secondary_text != blank %}
+            <a href="{{ section.settings.button_secondary_link }}" class="button secondary">
+              {{- section.settings.button_secondary_text -}}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="col-12 col-lg-6">
+        <div class="row">
+          {% for block in section.blocks %}
+            <div class="col-12"></div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Section",
+  "class": "about-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "heading_type",
+      "label": "Heading Type",
+      "default": "h2",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "About Me"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Peter Riezebos is a Dutch-born, globally roaming artist whose work blends neo-expressionism with radical honesty. Inspired by Basquiat, Picasso, and chaos itself, his paintings are intense, intimate, and immersive. <br><br> No gimmicks. No compromise.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_primary_text",
+      "label": "Primary Button Text",
+      "default": "About Peter"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Primary Button Link",
+      "visible_if": "{{ section.settings.button_primary_text != blank }}"
+    },
+    {
+      "type": "text",
+      "id": "button_secondary_text",
+      "label": "Secondary Button Text",
+      "default": "Download presskit"
+    },
+    {
+      "type": "url",
+      "id": "button_secondary_link",
+      "label": "Secondary Button Link",
+      "visible_if": "{{ section.settings.button_secondary_text != blank }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Afbeelding",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Afbeelding"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Section"
+    }
+  ]
+}
+{% endschema %}

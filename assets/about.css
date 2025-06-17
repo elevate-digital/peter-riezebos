@@ -1,0 +1,28 @@
+.about-section {
+  padding-block: var(--section-padding);
+  display: block;
+}
+
+.about-section .title {
+  margin-bottom: 0.75rem;
+}
+
+.about-section .text {
+  margin-bottom: 2rem;
+}
+
+.about-section .buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media only screen and (min-width: 990px) {
+  .about-section .title {
+    margin-bottom: 1.25rem;
+  }
+
+  .about-section .text {
+    margin-bottom: 3rem;
+  }
+}
