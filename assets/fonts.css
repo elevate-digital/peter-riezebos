@@ -10,6 +10,7 @@ a {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   color: var(--theme-color-primary);
+  text-decoration: none;
 }
 
 .title-large {
@@ -26,8 +27,12 @@ a {
   .title-large {
     font-size: 16vw;
   }
-
+  
   .title {
     font-size: 42px;
+  }
+  
+  p {
+    font-size: 1.5rem;
   }
 }
