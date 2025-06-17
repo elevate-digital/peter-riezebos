@@ -1,0 +1,255 @@
+{{ 'artwork-secondary.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign mainHeading = section.settings.heading_type
+%}
+
+<div class="artwork-secondary">
+  <div class="container">
+    <div class="row blocks-row">
+      {% if section.settings.title != blank %}
+        <div class="col-12">
+          <{{ mainHeading }} class="title-large">{{ section.settings.title }}</{{ mainHeading }}>
+        </div>
+      {% endif %}
+
+      {% for block in section.blocks %}
+        {% liquid
+          assign blockHeading = block.settings.heading_type
+        %}
+        <div class="col-12">
+          <div class="row block-row">
+            {% if block.settings.title != blank or block.settings.sub_text != blank %}
+              <div class="col-12 col-lg-6">
+                <div class="block-title">
+                  {% if block.settings.title != blank %}
+                    <{{ blockHeading }} class="title">{{ block.settings.title }}</{{ blockHeading }}>
+                  {% endif %}
+                  {% if block.settings.sub_text != blank %}
+                    <span>{{ block.settings.sub_text }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+
+            {% if block.settings.text != blank %}
+              <div class="col-12 col-lg-6">
+                <p>{{ block.settings.text }}</p>
+              </div>
+            {% endif %}
+
+            {% if block.settings.image1 != blank %}
+              <div class="col-8 col-lg-4">
+                <div class="block">
+                  <img
+                    src="{{ block.settings.image1 | img_url: '2048x2048' }}"
+                    alt="{{ block.settings.image1.alt | escape }}"
+                    width="{{ block.settings.image1.width }}"
+                    height="{{ block.settings.image1.height }}"
+                    class="artwork-image"
+                  >
+                  {% if block.settings.block1_title != blank %}
+                    <span class="subtitle">{{ block.settings.block1_title }}</span>
+                  {% endif %}
+                  {% if block.settings.block1_text != blank %}
+                    <p class="subtitle">{{ block.settings.block1_text }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+
+            {% if block.settings.image2 != blank %}
+              <div class="col-8 col-lg-4">
+                <div class="block">
+                  <img
+                    src="{{ block.settings.image2 | img_url: '2048x2048' }}"
+                    alt="{{ block.settings.image2.alt | escape }}"
+                    width="{{ block.settings.image2.width }}"
+                    height="{{ block.settings.image2.height }}"
+                    class="artwork-image"
+                  >
+                  {% if block.settings.block2_title != blank %}
+                    <span class="subtitle">{{ block.settings.block2_title }}</span>
+                  {% endif %}
+                  {% if block.settings.block2_text != blank %}
+                    <p class="subtitle">{{ block.settings.block2_text }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+
+            {% if block.settings.image3 != blank %}
+              <div class="col-8 col-lg-4">
+                <div class="block">
+                  <img
+                    src="{{ block.settings.image3 | img_url: '2048x2048' }}"
+                    alt="{{ block.settings.image3.alt | escape }}"
+                    width="{{ block.settings.image3.width }}"
+                    height="{{ block.settings.image3.height }}"
+                    class="artwork-image"
+                  >
+                  {% if block.settings.block3_title != blank %}
+                    <span class="subtitle">{{ block.settings.block3_title }}</span>
+                  {% endif %}
+                  {% if block.settings.block3_text != blank %}
+                    <p class="subtitle">{{ block.settings.block3_text }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+
+            {% if block.settings.link != blank %}
+              <div class="col-12">
+                <a href="{{ block.settings.link }}" class="button secondary">
+                  {{ block.settings.button_text }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Artwork Secondary",
+  "class": "artwork-secondary-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "heading_type",
+      "label": "Heading Type",
+      "default": "h2",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titel",
+      "default": "Artwork"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "artwork_block",
+      "name": "Artwork Block",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "select",
+          "id": "heading_type",
+          "label": "Heading Type",
+          "default": "h3",
+          "options": [
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel"
+        },
+        {
+          "type": "text",
+          "id": "sub_text",
+          "label": "Sub tekst"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Tekst"
+        },
+        {
+          "type": "header",
+          "content": "Blok 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "block1_title",
+          "label": "Blok titel",
+          "default": "Artwork"
+        },
+        {
+          "type": "text",
+          "id": "block1_text",
+          "label": "Blok tekst",
+          "default": "2020"
+        },
+        {
+          "type": "header",
+          "content": "Blok 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "block2_title",
+          "label": "Blok titel",
+          "default": "Artwork"
+        },
+        {
+          "type": "text",
+          "id": "block2_text",
+          "label": "Blok tekst",
+          "default": "2021"
+        },
+        {
+          "type": "header",
+          "content": "Blok 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image3",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "block3_title",
+          "label": "Blok titel",
+          "default": "Artwork"
+        },
+        {
+          "type": "text",
+          "id": "block3_text",
+          "label": "Blok tekst",
+          "default": "2022"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "View project"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "visible_if": "{{ block.settings.button_text != blank }}"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Artwork Secondary Section",
+      "category": "Artwork"
+    }
+  ]
+}
+{% endschema %}
