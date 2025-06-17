@@ -1,0 +1,76 @@
+{{ 'text-large.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign mainHeading = section.settings.heading_type
+%}
+
+{% if section.settings.remove_padding_top or section.settings.remove_padding_bottom %}
+  {% style %}
+    .text-large-section .text-large.{{ section.id }} {
+      {% if section.settings.remove_padding_top %}
+        padding-top: 0;
+      {% endif %}
+
+      {% if section.settings.remove_padding_bottom %}
+        padding-bottom: 0;
+      {% endif %}
+    }
+  {% endstyle %}
+{% endif %}
+
+<div class="text-large {{ section.id }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        {% if section.settings.title != blank %}
+          <{{ mainHeading }} class="title">{{ section.settings.title }}</{{ mainHeading }}>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Tekst groot",
+  "class": "text-large-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "remove_padding_top",
+      "label": "Verwijder ruimte bovenaan",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_padding_bottom",
+      "label": "Verwijder ruimte onderaan",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "This is a large text section"
+    },
+    {
+      "type": "select",
+      "id": "heading_type",
+      "label": "Heading Type",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" }
+      ],
+      "default": "h2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tekst groot",
+      "category": "Tekst"
+    }
+  ]
+}
+{% endschema %}

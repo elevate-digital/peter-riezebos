@@ -1,0 +1,8 @@
+.text-large-section {
+  padding: 0;
+  display: block;
+}
+
+.text-large-section .text-large {
+  padding-block: var(--section-padding);
+}
