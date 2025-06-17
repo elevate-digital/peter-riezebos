@@ -20,6 +20,12 @@
     "remove": "Remove"
   },
   "customers": {
+    "newsletter": {
+      "title": "Newsletter",
+      "email_placeholder": "yourmail@domain.com",
+      "submit": "Sign-up",
+      "success": "Thanks for subscribing!",
+    },
     "login": {
       "email": "Email",
       "password": "Password",
