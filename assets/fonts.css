@@ -23,6 +23,11 @@ a {
   line-height: 120%;
 }
 
+.subtitle {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
 @media only screen and (min-width: 990px) {
   .title-large {
     font-size: 16vw;
@@ -30,6 +35,11 @@ a {
   
   .title {
     font-size: 42px;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
   }
   
   p {
