@@ -214,6 +214,10 @@
     padding: 0 5.6rem;
   }
 
+  .row {
+    grid-column-gap: 3rem;
+  }
+
   .col-lg-1 {
     grid-column: span 1 / span 1;
   }
