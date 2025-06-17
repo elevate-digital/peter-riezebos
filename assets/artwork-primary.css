@@ -1,0 +1,22 @@
+.artwork-primary-section {
+  padding-block: var(--section-padding);
+  display: block;
+}
+
+.artwork-primary-section .title {
+  margin-bottom: 0.75rem;
+}
+
+.artwork-primary-section .button {
+  padding-bottom: 1.5rem;
+}
+
+@media only screen and (min-width: 990px) {
+  .artwork-primary-section .title {
+    margin-bottom: 1.5rem;
+  }
+
+  .artwork-primary-section .button {
+    margin-bottom: 3rem;
+  }
+}
