@@ -1,0 +1,251 @@
+{{ 'artwork-tertiary.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign mainHeading = section.settings.heading_type
+%}
+
+<div class="artwork-tertiary">
+  <div class="container">
+    <div class="row blocks-row">
+      {% if section.settings.title != blank %}
+        <div class="col-12 col-lg-6">
+          <{{ mainHeading }} class="title-larger">{{ section.settings.title }}</{{ mainHeading }}>
+        </div>
+      {% endif %}
+
+      {% for block in section.blocks %}
+        <div class="col-12">
+          <div class="row block-row">
+            <div class="col-12 col-lg-6">
+              <div class="block-title">
+                {% if block.settings.start != blank %}
+                  <span class="title-large">{{ block.settings.start }}</span>
+                {% endif %}
+                {% if block.settings.end != blank %}
+                  <span class="title-large end">{{ block.settings.end }}</span>
+                {% endif %}
+              </div>
+
+              {% if block.settings.intro != blank %}
+                <span class="subtitle intro">{{ block.settings.intro }}</span>
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <span class="text">{{ block.settings.text }}</span>
+              {% endif %}
+
+              {% if block.settings.link != blank %}
+                <a href="{{ block.settings.link }}" class="button primary">
+                  {{ block.settings.button_text }}
+                </a>
+              {% endif %}
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="row images-row">
+                {% if block.settings.image1 != blank %}
+                  <div class="col-12">
+                    <div class="block">
+                      <img
+                        src="{{ block.settings.image1 | img_url: '2048x2048' }}"
+                        alt="{{ block.settings.image1.alt | escape }}"
+                        width="{{ block.settings.image1.width }}"
+                        height="{{ block.settings.image1.height }}"
+                        class="artwork-image"
+                      >
+                      {% if block.settings.block1_title != blank %}
+                        <span class="title">{{ block.settings.block1_title }}</span>
+                      {% endif %}
+                      {% if block.settings.block1_text != blank %}
+                        <p class="subtitle">{{ block.settings.block1_text }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if block.settings.image2 != blank %}
+                  <div class="col-12 col-lg-6">
+                    <div class="block">
+                      <img
+                        src="{{ block.settings.image2 | img_url: '2048x2048' }}"
+                        alt="{{ block.settings.image2.alt | escape }}"
+                        width="{{ block.settings.image2.width }}"
+                        height="{{ block.settings.image2.height }}"
+                        class="artwork-image"
+                      >
+                      {% if block.settings.block2_title != blank %}
+                        <span class="title">{{ block.settings.block2_title }}</span>
+                      {% endif %}
+                      {% if block.settings.block2_text != blank %}
+                        <p class="subtitle">{{ block.settings.block2_text }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+
+                {% if block.settings.image3 != blank %}
+                  <div class="col-12 col-lg-6">
+                    <div class="block">
+                      <img
+                        src="{{ block.settings.image3 | img_url: '2048x2048' }}"
+                        alt="{{ block.settings.image3.alt | escape }}"
+                        width="{{ block.settings.image3.width }}"
+                        height="{{ block.settings.image3.height }}"
+                        class="artwork-image"
+                      >
+                      {% if block.settings.block3_title != blank %}
+                        <span class="title">{{ block.settings.block3_title }}</span>
+                      {% endif %}
+                      {% if block.settings.block3_text != blank %}
+                        <p class="subtitle">{{ block.settings.block3_text }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Artwork Tertiary",
+  "class": "artwork-tertiary-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "heading_type",
+      "label": "Heading Type",
+      "default": "h2",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titel",
+      "default": "Artwork"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "artwork_block",
+      "name": "Artwork Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "start",
+          "label": "Start",
+          "default": "2020"
+        },
+        {
+          "type": "text",
+          "id": "end",
+          "label": "End",
+          "default": "2022"
+        },
+        {
+          "type": "textarea",
+          "id": "intro",
+          "label": "Intro",
+          "default": "Works by Peter are bold and powerful and emotionally attractive. His artistic ‘schwung’ demands immersive attention which often leads to an interactive experience for the viewer/perceiver."
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Tekst",
+          "default": "Peter considers himself a global citizen and paints on location all over the world (often residing the majority of the year in hotels all over Europe, Asia and the United States). His travels and cross-cultural immersions are reflected throughout his art."
+        },
+        {
+          "type": "header",
+          "content": "Blok 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "block1_title",
+          "label": "Blok titel",
+          "default": "Artwork"
+        },
+        {
+          "type": "text",
+          "id": "block1_text",
+          "label": "Blok tekst",
+          "default": "2020"
+        },
+        {
+          "type": "header",
+          "content": "Blok 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "block2_title",
+          "label": "Blok titel",
+          "default": "Artwork"
+        },
+        {
+          "type": "text",
+          "id": "block2_text",
+          "label": "Blok tekst",
+          "default": "2021"
+        },
+        {
+          "type": "header",
+          "content": "Blok 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image3",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "block3_title",
+          "label": "Blok titel",
+          "default": "Artwork"
+        },
+        {
+          "type": "text",
+          "id": "block3_text",
+          "label": "Blok tekst",
+          "default": "2022"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "View project"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "visible_if": "{{ block.settings.button_text != blank }}"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Artwork Tertiary Section",
+      "category": "Artwork"
+    }
+  ]
+}
+{% endschema %}

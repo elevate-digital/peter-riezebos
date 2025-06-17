@@ -1,0 +1,74 @@
+.artwork-tertiary-section {
+  padding-block: var(--section-padding);
+  display: block;
+}
+
+.artwork-tertiary .blocks-row {
+  row-gap: 1.5rem;
+}
+
+.artwork-tertiary .block-row {
+  row-gap: 1rem;
+}
+
+.artwork-tertiary .block-title {
+  margin-bottom: 1rem;
+}
+
+.artwork-tertiary .block-title .end {
+  color: #B7B7B7;
+}
+
+.artwork-tertiary .block p {
+  color: var(--theme-color-tertiary);
+}
+
+.artwork-tertiary .intro,
+.artwork-tertiary .text {
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.artwork-tertiary .text {
+  font-weight: 500;
+}
+
+.artwork-tertiary .images-row {
+  row-gap: 1rem;
+}
+
+.artwork-tertiary .images-row img {
+  margin-bottom: 0.75rem;
+}
+
+.artwork-tertiary .images-row span {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+@media only screen and (min-width: 990px) {
+  .artwork-tertiary .blocks-row {
+    row-gap: 2.25rem;
+  }
+
+  .artwork-tertiary .block-title {
+    margin-bottom: 2.25rem;
+  }
+
+  .artwork-tertiary .intro,
+  .artwork-tertiary .text {
+    margin-bottom: 1.5rem;
+  }
+
+  .artwork-tertiary .images-row {
+    row-gap: 2.25rem;
+  }
+
+  .artwork-tertiary .images-row img {
+    margin-bottom: 1.125rem;
+  }
+
+  .artwork-tertiary .images-row span {
+    margin-bottom: 0.5rem;
+  }
+}
