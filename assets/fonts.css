@@ -23,6 +23,11 @@ a {
   line-height: 120%;
 }
 
+.title-larger {
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
 .subtitle {
   font-size: 1rem;
   line-height: 1rem;
@@ -35,6 +40,11 @@ a {
   
   .title {
     font-size: 42px;
+  }
+
+  .title-larger {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
   }
 
   .subtitle {
