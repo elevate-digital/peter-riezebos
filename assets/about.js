@@ -3,7 +3,7 @@ gsap.registerPlugin(ScrollTrigger);
 function initAbout() {
   // Change body background to white
   gsap.to("body", {
-    backgroundColor: "var(--bw-white)",
+    backgroundColor: "#FFFFFF",
     duration: 1,
     ease: "power3.out",
     scrollTrigger: {
