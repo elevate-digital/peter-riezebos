@@ -1,0 +1,48 @@
+{{ 'marquee.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.section_title %}
+  <h2 class="section-title">{{ section.settings.section_title }}</h2>
+{% endif %}
+
+<section class="social">
+  <div class="marquee-wrapper">
+    <div class="marquee">
+      <ul class="social-links marquee__content">
+        <li><a href="#" class="social__link">Instagram</a></li>
+        <li><a href="#" class="social__link">Tiktok</a></li>
+        <li><a href="#" class="social__link">Facebook</a></li>
+        <li><a href="#" class="social__link">Linkedin</a></li>
+        <li><a href="#" class="social__link">Youtube</a></li>
+        <li><a href="#" class="social__link">Twitch</a></li>
+      </ul>
+      <ul class="marquee__content" aria-hidden="true">
+        <li><a href="#" class="social__link">Instagram</a></li>
+        <li><a href="#" class="social__link">Tiktok</a></li>
+        <li><a href="#" class="social__link">Facebook</a></li>
+        <li><a href="#" class="social__link">Linkedin</a></li>
+        <li><a href="#" class="social__link">Youtube</a></li>
+        <li><a href="#" class="social__link">Twitch</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Marquee",
+  "class": "marquee-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Follow Me"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee"
+    }
+  ]
+}
+{% endschema %}

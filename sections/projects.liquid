@@ -1,0 +1,88 @@
+{{ 'projects.css' | asset_url | stylesheet_tag }}
+
+<section class="projects">
+  <nav class="projects__menu">
+    <ul>
+      <li><a href="#project1" data-target="project1">Amor</a></li>
+      <li><a href="#project2" data-target="project2">Matrix</a></li>
+      <li><a href="#project3" data-target="project3">Amicitia</a></li>
+    </ul>
+  </nav>
+
+  <!-- Project 1 -->
+  <article id="project1 project-amor" class="project" data-bg="#ff0000">
+    <div class="project__sticky" style="background-color: var(--bg-color)">
+      <div class="project__center">
+        <h1 class="project__title">Riezebos</h1>
+        <img class="project__overlay" src="/assets/pr-type-project-amor-Dl3VpM6I.png" alt="Peter Riezebos - Amor">
+      </div>
+
+      <div class="project__slides">
+        <div class="slide slide--image">
+          <img src="/assets/pr-cover-image-oBYcuebw.jpg">
+        </div>
+        <div class="slide slide--fullscreen">
+          <video
+            src="/assets/pr-teaser-dummy-C8SZV4wj.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            class="moment__media"
+          ></video>
+        </div>
+        <div class="slide slide--quote">
+          <img src="/assets/pr-shoot-01-CZtomgip.jpg">
+          <div class="quote">
+            <p>"The only way is all in."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Project 2 -->
+  <article id="project2 project-matrix" class="project" data-bg="#00ff00">
+    <div class="project__sticky" style="background-color: var(--bg-color)">
+      <div class="project__center">
+        <h1 class="project__title">RIEZEBOS</h1>
+        <img class="project__overlay" src="/assets/pr-type-project-matrix-BuEPxEy7.png" alt="Peter Riezebos - Matrix">
+      </div>
+
+      <div class="project__slides">
+        <div class="slide slide--image">
+          <img src="/assets/pr-shoot-02-DLL64NAg.jpg">
+        </div>
+        <div class="slide slide--fullscreen">
+          <img src="/assets/pr-shoot-03-BLQErYUQ.jpg">
+        </div>
+        <div class="slide slide--quote">
+          <img src="/assets/pr-shoot-04-m_-KWMrC.jpg">
+          <div class="quote">
+            <p>"The only way is all in."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+{% schema %}
+  {
+    "name": "Projecten",
+    "class": "projects-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title",
+        "default": "Projects"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Projecten"
+      }
+    ]
+  }
+{% endschema %}

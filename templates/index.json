@@ -9,12 +9,56 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
-      "settings": {}
+    "hero_a7E3kt": {
+      "type": "hero",
+      "name": "Hero",
+      "settings": {
+        "title": "Peter Riezebos",
+        "subtitle": "Art from a life without brakes. Raw. Bold. Real."
+      }
+    },
+    "about_hF9tqU": {
+      "type": "about",
+      "name": "About",
+      "settings": {
+        "heading_type": "h2",
+        "title": "About Me",
+        "text": "<p>Peter Riezebos is a Dutch-born, globally roaming artist whose work blends neo-expressionism with radical honesty. Inspired by Basquiat, Picasso, and chaos itself, his paintings are intense, intimate, and immersive. <br/><br/> No gimmicks. No compromise.</p>",
+        "button_primary_text": "About Peter",
+        "button_link": "",
+        "button_secondary_text": "Download presskit",
+        "button_secondary_link": ""
+      }
+    },
+    "projects_aMicQr": {
+      "type": "projects",
+      "name": "Projecten",
+      "settings": {
+        "section_title": "Projects"
+      }
+    },
+    "marquee_pLktDU": {
+      "type": "marquee",
+      "name": "Marquee",
+      "settings": {
+        "section_title": "Follow Me"
+      }
+    },
+    "contact_NrLFaW": {
+      "type": "contact",
+      "name": "Contact",
+      "settings": {
+        "heading_type": "h2",
+        "title": "Want to connect, collaborate, or just stay in the loop?",
+        "text": "Reach out — Peter might be in Hardewijk, Amsterdam, L.A., or somewhere in between."
+      }
     }
   },
   "order": [
-    "main"
+    "hero_a7E3kt",
+    "about_hF9tqU",
+    "projects_aMicQr",
+    "marquee_pLktDU",
+    "contact_NrLFaW"
   ]
 }

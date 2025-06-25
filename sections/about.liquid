@@ -1,46 +1,76 @@
 {{ 'about.css' | asset_url | stylesheet_tag }}
+{{ 'about.js' | asset_url | script_tag }}
 
 {% liquid
   assign heading = section.settings.heading_type
 %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-lg-6">
-      <{{ heading }} class="title">{{ section.settings.title }}</{{ heading }}>
-      <div class="text">{{ section.settings.text }}</div>
-
-      {% if section.settings.button_primary_text != blank or section.settings.button_secondary_text != blank %}
-        <div class="buttons">
-          {% if section.settings.button_primary_text != blank %}
-            <a href="{{ section.settings.button_link }}" class="button primary">
-              {{- section.settings.button_primary_text -}}
-            </a>
-          {% endif %}
-          {% if section.settings.button_secondary_text != blank %}
-            <a href="{{ section.settings.button_secondary_link }}" class="button secondary">
-              {{- section.settings.button_secondary_text -}}
-            </a>
-          {% endif %}
-        </div>
-      {% endif %}
+<section id="about" class="about">
+  <div class="about__grid">
+    <!-- Intro blok -->
+    <div class="about__intro">
+      <h2 class="about__title">The only way is all in.</h2>
+      <p class="about__description">
+        That's the process of artist Peter Riezebos. Curiosity consumes him as he dives in worlds big and small to make
+        sense of them - video games, wine, wrestling, everything everywhere from Amsterdam to Shanghai.
+      </p>
+      <div class="about__signature">
+        <svg width="140" height="61" aria-hidden="true">
+          <use href="#signature" />
+        </svg>
+      </div>
     </div>
 
-    {% if section.blocks.size > 0 %}
-      <div class="col-12 col-lg-6">
-        <div class="row">
-          {% for block in section.blocks %}
-            <div class="col-12"></div>
-          {% endfor %}
+    <!-- Moments blok -->
+    <div class="about__moments">
+      <div class="moment">
+        <div class="moment__media-wrapper">
+          <img src="/assets/pr-shoot-03-BLQErYUQ.jpg" alt="Artwork 1" class="moment__media">
+        </div>
+        <div class="moment__meta">
+          <span class="moment__year">2024</span>
+          <div class="moment__text">
+            <h3 class="moment__title">Key Moment</h3>
+            <p class="moment__description">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+          </div>
         </div>
       </div>
-    {% endif %}
+
+      <div class="moment">
+        <div class="moment__media-wrapper">
+          <img src="/assets/pr-shoot-06-C2xqS1dr.jpg" alt="Artwork 2" class="moment__media">
+        </div>
+        <div class="moment__meta">
+          <span class="moment__year">2022</span>
+          <div class="moment__text">
+            <h3 class="moment__title">Experiment</h3>
+            <p class="moment__description">
+              Egestas adipiscing aenean in tellus pretium tempus amet eget sit. Elit mattis tellus vel tellus vestibulum
+              mauris amet pellentesque.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment__media-wrapper">
+          <img src="/assets/pr-shoot-05-CRnhSMSL.jpg" alt="Artwork 3" class="moment__media">
+        </div>
+        <div class="moment__meta">
+          <span class="moment__year">2020</span>
+          <div class="moment__text">
+            <h3 class="moment__title">Early Days</h3>
+            <p class="moment__description">Phasellus varius nulla vel turpis consectetur fermentum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 {% schema %}
 {
-  "name": "About Section",
+  "name": "About",
   "class": "about-section",
   "settings": [
     {
@@ -106,7 +136,7 @@
   ],
   "presets": [
     {
-      "name": "About Section"
+      "name": "About"
     }
   ]
 }
