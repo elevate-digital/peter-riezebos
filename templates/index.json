@@ -11,23 +11,56 @@
   "sections": {
     "hero_a7E3kt": {
       "type": "hero",
+      "disabled": true,
       "name": "Hero",
       "settings": {
-        "title": "Peter Riezebos",
-        "subtitle": "Art from a life without brakes. Raw. Bold. Real."
+        "title": "Peter Riezebos"
       }
     },
     "about_hF9tqU": {
       "type": "about",
+      "blocks": {
+        "image_xp3MXW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/pr-shoot-03.jpg",
+            "year": "2024",
+            "title": "Key Moment",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>"
+          }
+        },
+        "image_eaAeYN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/pr-shoot-06.jpg",
+            "year": "2024",
+            "title": "Key Moment",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>"
+          }
+        },
+        "image_7DFcLQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/pr-shoot-05.jpg",
+            "year": "2024",
+            "title": "Key Moment",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_xp3MXW",
+        "image_eaAeYN",
+        "image_7DFcLQ"
+      ],
       "name": "About",
       "settings": {
+        "background_image": "shopify://shop_images/fx-noise.gif",
+        "overlay_image": "shopify://shop_images/pr-textures-paper.jpg",
+        "background_color": "#ff0000",
         "heading_type": "h2",
         "title": "About Me",
-        "text": "<p>Peter Riezebos is a Dutch-born, globally roaming artist whose work blends neo-expressionism with radical honesty. Inspired by Basquiat, Picasso, and chaos itself, his paintings are intense, intimate, and immersive. <br/><br/> No gimmicks. No compromise.</p>",
-        "button_primary_text": "About Peter",
-        "button_link": "",
-        "button_secondary_text": "Download presskit",
-        "button_secondary_link": ""
+        "text": "<p>Peter Riezebos is a Dutch-born, globally roaming artist whose work blends neo-expressionism with radical honesty. Inspired by Basquiat, Picasso, and chaos itself, his paintings are intense, intimate, and immersive. <br/><br/> No gimmicks. No compromise.</p>"
       }
     },
     "projects_aMicQr": {
