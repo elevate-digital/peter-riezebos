@@ -2,12 +2,22 @@
 {{ 'hero.js' | asset_url | script_tag }}
 
 <header class="hero">
-  <h1 class="hero__heading">Riezebos</h1>
-  <img class="hero__type" src="/assets/pr-type-project-amor-Dl3VpM6I.png" alt="Amor">
-  <img class="hero__portrait" src="/assets/pr-cover-image-oBYcuebw.jpg" alt="Peter Riezebos">
-  <video class="hero__video" playsinline autoplay muted loop>
-    <source src="/assets/pr-teaser-dummy-C8SZV4wj.mp4" type="video/mp4">
-  </video>
+  {% if section.settings.title != blank %}
+    <h1 class="hero__heading">{{ section.settings.title }}</h1>
+  {% endif %}
+
+  {% if section.settings.top_image != blank %}
+    {{ section.settings.top_image | image_url: width: 1200 | image_tag: class: 'hero__type' }}
+  {% endif %}
+
+  {% if section.settings.main_image != blank %}
+    {{ section.settings.main_image | image_url: width: 1200 | image_tag: class: 'hero__type' }}
+  {% endif %}
+
+  {% if section.settings.video_file != blank %}
+    {{ section.settings.video_file | video_tag: autoplay: true, muted: true, loop: true, class: 'hero__video' }}
+  {% endif %}
+  
   <div class="hero__bg"></div>
   <div class="hero__scroll">
     <a href="#about" class="scroll-indicator">
@@ -33,21 +43,24 @@
   "settings": [
     {
       "type": "image_picker",
-      "id": "background_image",
-      "label": "Background Image"
+      "id": "top_image",
+      "label": "Top layered Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image"
+    },
+    {
+      "type": "video",
+      "id": "video_file",
+      "label": "Video File"
     },
     {
       "type": "text",
       "id": "title",
       "label": "Title",
-      "info": "Om woorden op een nieuwe regel te zetten, gebruik <br>.",
-      "default": "Peter Riezebos"
-    },
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Art from a life without brakes. Raw. Bold. Real."
+      "default": "RIEZEBOS"
     }
   ],
   "presets": [
