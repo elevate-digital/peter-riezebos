@@ -5,66 +5,70 @@
   assign heading = section.settings.heading_type
 %}
 
-<section id="about" class="about">
+{% style %}
+  .about.{{ section.id }} .about__intro {
+    background-color: {{ section.settings.background_color }};
+  }
+
+  {% if section.settings.background_image != blank %}
+    .about.{{ section.id }} .about__intro::before {
+      background-image: url({{ section.settings.background_image | image_url: width: 1000 }});
+    }
+  {% endif %}
+
+  {% if section.settings.overlay_image != blank %}
+    .about.{{ section.id }} .about__intro::after {
+      background-image: url({{ section.settings.overlay_image | image_url: width: 1000 }});
+    }
+  {% endif %}
+{% endstyle %}
+
+<section id="about" class="about {{ section.id }}">
   <div class="about__grid">
     <!-- Intro blok -->
     <div class="about__intro">
-      <h2 class="about__title">The only way is all in.</h2>
-      <p class="about__description">
-        That's the process of artist Peter Riezebos. Curiosity consumes him as he dives in worlds big and small to make
-        sense of them - video games, wine, wrestling, everything everywhere from Amsterdam to Shanghai.
-      </p>
-      <div class="about__signature">
-        <svg width="140" height="61" aria-hidden="true">
-          <use href="#signature" />
-        </svg>
-      </div>
+      {% if section.settings.title != blank %}
+        <{{ heading }} class="about__title">{{ section.settings.title }}</{{ heading }}>
+      {% endif %}
+
+      {% if section.settings.text != blank %}
+        <div class="about__description">{{ section.settings.text }}</div>
+      {% endif %}
+
+      {% if section.settings.signature != blank %}
+        <div class="about__signature">
+          {{ section.settings.signature | image_url: width: 1000 | image_tag: class: 'about__signature-image' }}
+        </div>
+      {% endif %}
     </div>
 
     <!-- Moments blok -->
-    <div class="about__moments">
-      <div class="moment">
-        <div class="moment__media-wrapper">
-          <img src="/assets/pr-shoot-03-BLQErYUQ.jpg" alt="Artwork 1" class="moment__media">
-        </div>
-        <div class="moment__meta">
-          <span class="moment__year">2024</span>
-          <div class="moment__text">
-            <h3 class="moment__title">Key Moment</h3>
-            <p class="moment__description">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+    {% if section.blocks.size > 0 %}
+      <div class="about__moments">
+        {% for block in section.blocks %}
+          <div class="moment">
+            <div class="moment__media-wrapper">
+              {{ block.settings.image | image_url: width: 1000 | image_tag: class: 'moment__media' }}
+            </div>
+            <div class="moment__meta">
+              {% if block.settings.year != blank %}
+                <span class="moment__year">{{ block.settings.year }}</span>
+              {% endif %}
+              {% if block.settings.title != blank or block.settings.description != blank %}
+                <div class="moment__text">
+                  {% if block.settings.title != blank %}
+                    <h3 class="moment__title">{{ block.settings.title }}</h3>
+                  {% endif %}
+                  {% if block.settings.description != blank %}
+                    <p class="moment__description">{{ block.settings.description }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
           </div>
-        </div>
+        {% endfor %}
       </div>
-
-      <div class="moment">
-        <div class="moment__media-wrapper">
-          <img src="/assets/pr-shoot-06-C2xqS1dr.jpg" alt="Artwork 2" class="moment__media">
-        </div>
-        <div class="moment__meta">
-          <span class="moment__year">2022</span>
-          <div class="moment__text">
-            <h3 class="moment__title">Experiment</h3>
-            <p class="moment__description">
-              Egestas adipiscing aenean in tellus pretium tempus amet eget sit. Elit mattis tellus vel tellus vestibulum
-              mauris amet pellentesque.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="moment">
-        <div class="moment__media-wrapper">
-          <img src="/assets/pr-shoot-05-CRnhSMSL.jpg" alt="Artwork 3" class="moment__media">
-        </div>
-        <div class="moment__meta">
-          <span class="moment__year">2020</span>
-          <div class="moment__text">
-            <h3 class="moment__title">Early Days</h3>
-            <p class="moment__description">Phasellus varius nulla vel turpis consectetur fermentum.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% endif %}
   </div>
 </section>
 
@@ -73,6 +77,22 @@
   "name": "About",
   "class": "about-section",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "overlay_image",
+      "label": "Overlay Image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ff0000"
+    },
     {
       "type": "select",
       "id": "heading_type",
@@ -94,42 +114,36 @@
       "type": "richtext",
       "id": "text",
       "label": "Text",
-      "default": "<p>Peter Riezebos is a Dutch-born, globally roaming artist whose work blends neo-expressionism with radical honesty. Inspired by Basquiat, Picasso, and chaos itself, his paintings are intense, intimate, and immersive. <br><br> No gimmicks. No compromise.</p>"
-    },
-    {
-      "type": "text",
-      "id": "button_primary_text",
-      "label": "Primary Button Text",
-      "default": "About Peter"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Primary Button Link",
-      "visible_if": "{{ section.settings.button_primary_text != blank }}"
-    },
-    {
-      "type": "text",
-      "id": "button_secondary_text",
-      "label": "Secondary Button Text",
-      "default": "Download presskit"
-    },
-    {
-      "type": "url",
-      "id": "button_secondary_link",
-      "label": "Secondary Button Link",
-      "visible_if": "{{ section.settings.button_secondary_text != blank }}"
+      "default": "<p>That's the process of artist Peter Riezebos. Curiosity consumes him as he dives in worlds big and small to make sense of them - video games, wine, wrestling, everything everywhere from Amsterdam to Shanghai.</p>"
     }
   ],
   "blocks": [
     {
       "type": "image",
-      "name": "Afbeelding",
+      "name": "Blok",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
           "label": "Afbeelding"
+        },
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year",
+          "default": "2024"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Key Moment"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>"
         }
       ]
     }
