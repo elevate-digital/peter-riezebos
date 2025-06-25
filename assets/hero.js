@@ -1,10 +1,22 @@
-import { gsap } from 'gsap';
-import { SplitText } from 'gsap/SplitText';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+// custom-hero.js
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-export function initHero() {
+// Helper function to fit text to container
+function fitText(selector, compressor = 1) {
+  const elements = document.querySelectorAll(selector);
+  function resize() {
+    elements.forEach((element) => {
+      const parentWidth = element.parentElement.offsetWidth;
+      const textLength = element.textContent.length;
+      const newFontSize = (parentWidth / textLength) * compressor;
+      element.style.fontSize = `${newFontSize}px`;
+    });
+  }
+  resize();
+  window.addEventListener("resize", resize);
+}
+
+function initHero() {
   // Split text animation
   let split = SplitText.create(".hero__heading", { type: "chars" });
   gsap.from(split.chars, {
@@ -57,17 +69,9 @@ export function initHero() {
   fitText(".hero__heading", 1.5);
 }
 
-// Helper function to fit text to container
-function fitText(selector, compressor = 1) {
-  const elements = document.querySelectorAll(selector);
-  function resize() {
-    elements.forEach((element) => {
-      const parentWidth = element.parentElement.offsetWidth;
-      const textLength = element.textContent.length;
-      const newFontSize = (parentWidth / textLength) * compressor;
-      element.style.fontSize = `${newFontSize}px`;
-    });
+// Run when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  if (document.querySelector('.hero')) {
+    initHero();
   }
-  resize();
-  window.addEventListener("resize", resize);
-} 
+});

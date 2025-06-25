@@ -1,10 +1,7 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 gsap.registerPlugin(ScrollTrigger);
 
-export function initAbout() {
-  // Change body to white
+function initAbout() {
+  // Change body background to white
   gsap.to("body", {
     backgroundColor: "var(--bw-white)",
     duration: 1,
@@ -14,11 +11,11 @@ export function initAbout() {
       trigger: ".about",
       start: "top bottom",
       end: "bottom top",
-      toggleActions: "play none none reverse"
-    }
+      toggleActions: "play none none reverse",
+    },
   });
 
-  // Moments fade-in per item
+  // Fade in each .moment element
   document.querySelectorAll(".moment").forEach((moment) => {
     gsap.from(moment, {
       autoAlpha: 0,
@@ -28,8 +25,15 @@ export function initAbout() {
       scrollTrigger: {
         trigger: moment,
         start: "top 90%",
-        toggleActions: "play none none reverse"
-      }
+        toggleActions: "play none none reverse",
+      },
     });
   });
-} 
+}
+
+// Only run on pages that contain .about section
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.querySelector(".about")) {
+    initAbout();
+  }
+});
