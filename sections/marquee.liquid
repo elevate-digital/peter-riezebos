@@ -1,27 +1,21 @@
 {{ 'marquee.css' | asset_url | stylesheet_tag }}
 
-{% if section.settings.section_title %}
-  <h2 class="section-title">{{ section.settings.section_title }}</h2>
-{% endif %}
-
 <section class="social">
   <div class="marquee-wrapper">
     <div class="marquee">
       <ul class="social-links marquee__content">
-        <li><a href="#" class="social__link">Instagram</a></li>
-        <li><a href="#" class="social__link">Tiktok</a></li>
-        <li><a href="#" class="social__link">Facebook</a></li>
-        <li><a href="#" class="social__link">Linkedin</a></li>
-        <li><a href="#" class="social__link">Youtube</a></li>
-        <li><a href="#" class="social__link">Twitch</a></li>
+        {% for block in section.blocks %}
+          <li>
+            <div class="social__link">{{ block.settings.text }}</div>
+          </li>
+        {% endfor %}
       </ul>
       <ul class="marquee__content" aria-hidden="true">
-        <li><a href="#" class="social__link">Instagram</a></li>
-        <li><a href="#" class="social__link">Tiktok</a></li>
-        <li><a href="#" class="social__link">Facebook</a></li>
-        <li><a href="#" class="social__link">Linkedin</a></li>
-        <li><a href="#" class="social__link">Youtube</a></li>
-        <li><a href="#" class="social__link">Twitch</a></li>
+        {% for block in section.blocks %}
+          <li>
+            <div class="social__link">{{ block.settings.text }}</div>
+          </li>
+        {% endfor %}
       </ul>
     </div>
   </div>
@@ -31,12 +25,18 @@
 {
   "name": "Marquee",
   "class": "marquee-section",
-  "settings": [
+  "blocks": [
     {
       "type": "text",
-      "id": "section_title",
-      "label": "Section Title",
-      "default": "Follow Me"
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Instagram"
+        }
+      ]
     }
   ],
   "presets": [
