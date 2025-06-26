@@ -129,23 +129,25 @@
 }
 
 .contact__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   font-size: var(--fs--2);
-
   font-family: var(--font-mono, monospace);
   margin-bottom: var(--space-m);
   max-width: 32ch;
-}
-
-.contact__link {
-  font-size: var(--fs--1);
-  color: var(--color-black);
-  text-decoration: none;
-  font-weight: 700;
-  margin-bottom: var(--space-xs);
-  transition: color 0.2s;
-
-  &:hover {
-    color: var(--color-gray);
+  
+  a {
+    font-size: var(--fs--1);
+    color: var(--color-black);
+    text-decoration: none;
+    font-weight: 700;
+    margin-bottom: var(--space-xs);
+    transition: color 0.2s;
+    
+    &:hover {
+      color: var(--color-gray);
+    }
   }
 }
 
