@@ -9,20 +9,16 @@
     {{ 'typography.css' | asset_url | stylesheet_tag }}
     {{ 'variables.css' | asset_url | stylesheet_tag }}
     {{ 'ed-grid.css' | asset_url | stylesheet_tag }}
-    {{ 'fonts.css' | asset_url | stylesheet_tag }}
     {{ 'buttons.css' | asset_url | stylesheet_tag }}
 
     {% # Load and preload the critical CSS %}
     {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
 
-    {% # Load Swiper JS %}
-    <!-- Swiper CSS -->
 
     {% # Social, title, etc. %}
     {% render 'meta-tags' %}
 
     {{ content_for_header }}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.0.0/swiper-bundle.min.css">
   </head>
 
   <body>
@@ -31,6 +27,5 @@
     {{ content_for_layout }}
 
     {% sections 'footer-group' %}
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </body>
 </html>
