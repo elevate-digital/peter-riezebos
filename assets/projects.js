@@ -1,9 +1,6 @@
 // Enable ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-// Normalize scroll for better mobile performance
-ScrollTrigger.normalizeScroll(true);
-
 function initProjects() {
   document.querySelectorAll(".project").forEach((project) => {
     const slides = project.querySelector(".project__slides");
