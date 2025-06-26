@@ -135,9 +135,11 @@
   }
 
   &__description {
-    font-family: var(--font-mono);
-    font-size: var(--fs--3);
-    line-height: 150%;
-    padding: 0px;
+    p {
+      font-family: var(--font-mono);
+      font-size: var(--fs--3);
+      line-height: 150%;
+      padding: 0px;
+    }
   }
 }

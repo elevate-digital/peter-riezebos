@@ -60,7 +60,7 @@
                     <h3 class="moment__title">{{ block.settings.title }}</h3>
                   {% endif %}
                   {% if block.settings.description != blank %}
-                    <p class="moment__description">{{ block.settings.description }}</p>
+                    <div class="moment__description">{{ block.settings.description }}</div>
                   {% endif %}
                 </div>
               {% endif %}
@@ -143,7 +143,7 @@
           "default": "Key Moment"
         },
         {
-          "type": "richtext",
+          "type": "text",
           "id": "description",
           "label": "Description",
           "default": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>"
