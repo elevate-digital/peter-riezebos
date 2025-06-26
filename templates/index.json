@@ -68,32 +68,179 @@
     },
     "projects_aMicQr": {
       "type": "projects",
+      "blocks": {
+        "image_dTzQWB": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/pr-cover-image.jpg"
+          }
+        },
+        "video_NJWWW6": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/pr-teaser-dummy.mp4"
+          }
+        },
+        "image_B3E6FG": {
+          "type": "image",
+          "settings": {
+            "title": "\"The only way is all in.\"",
+            "image": "shopify://shop_images/pr-shoot-01.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_dTzQWB",
+        "video_NJWWW6",
+        "image_B3E6FG"
+      ],
       "name": "Projecten",
       "settings": {
-        "section_title": "Projects"
+        "id": "project1",
+        "background_image": "shopify://shop_images/fx-noise.gif",
+        "overlay_image": "shopify://shop_images/pr-textures-paper.jpg",
+        "heading_type": "h2",
+        "background_color": "#ff0000",
+        "background_color_transition": "#333333",
+        "title": "RIEZEBOS",
+        "top_image": "shopify://shop_images/pr-type-project-amor.png",
+        "navigation": ""
+      }
+    },
+    "projects_3gi4aN": {
+      "type": "projects",
+      "blocks": {
+        "image_Qg7gCb": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/pr-shoot-02.jpg"
+          }
+        },
+        "image_LLhVN6": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/pr-shoot-03.jpg"
+          }
+        },
+        "image_JkwAeE": {
+          "type": "image",
+          "settings": {
+            "title": "\"The only way is all in.\"",
+            "image": "shopify://shop_images/pr-shoot-04.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_Qg7gCb",
+        "image_LLhVN6",
+        "image_JkwAeE"
+      ],
+      "name": "Projecten",
+      "settings": {
+        "id": "project2",
+        "background_image": "shopify://shop_images/fx-noise.gif",
+        "overlay_image": "shopify://shop_images/pr-textures-paper.jpg",
+        "heading_type": "h1",
+        "background_color": "#00ff00",
+        "background_color_transition": "#111111",
+        "title": "RIEZEBOS",
+        "top_image": "shopify://shop_images/pr-type-project-matrix.png",
+        "navigation": ""
       }
     },
     "marquee_pLktDU": {
       "type": "marquee",
+      "blocks": {
+        "text_UePHzU": {
+          "type": "text",
+          "settings": {
+            "text": "Instagram"
+          }
+        },
+        "text_CUaK3p": {
+          "type": "text",
+          "settings": {
+            "text": "Tiktok"
+          }
+        },
+        "text_bmnKwg": {
+          "type": "text",
+          "settings": {
+            "text": "Facebook"
+          }
+        },
+        "text_qYLYdX": {
+          "type": "text",
+          "settings": {
+            "text": "Linkedin"
+          }
+        },
+        "text_FLwRrR": {
+          "type": "text",
+          "settings": {
+            "text": "Youtube"
+          }
+        },
+        "text_xff8Yr": {
+          "type": "text",
+          "settings": {
+            "text": "Twitch"
+          }
+        }
+      },
+      "block_order": [
+        "text_UePHzU",
+        "text_CUaK3p",
+        "text_bmnKwg",
+        "text_qYLYdX",
+        "text_FLwRrR",
+        "text_xff8Yr"
+      ],
       "name": "Marquee",
-      "settings": {
-        "section_title": "Follow Me"
-      }
+      "settings": {}
     },
     "contact_NrLFaW": {
       "type": "contact",
+      "blocks": {
+        "inquiries_rAdJwL": {
+          "type": "inquiries",
+          "settings": {
+            "title": "INQUIRIES",
+            "text": "<p>Malesuada porttitor luctus eros donec. Feugiat nisi mauris et purus ipsum. Tristique venenatis convallis nec at ipsum maecenas auctor ut. Quam volutpat enim varius quis ut faucibus. Sit nunc sem lorem vel. Tortor est pellentesque interdum semper.</p><p><a href=\"mailto:inquiries@peterriezebos.com\"><strong>inquiries@peterriezebos.com</strong></a></p>"
+          }
+        },
+        "press_FT7cjV": {
+          "type": "press",
+          "settings": {
+            "title": "PRESS",
+            "text": "<p>Ullamcorper eget risus adipiscing faucibus adipiscing ultrices lectus risus. Neque tortor consequat consequat sed interdum id ullamcorper mattis condimentum. Tellus pretium lectus sed sit eleifend magna nibh etiam. Viverra etiam nisi.</p><p><a href=\"mailto:press@peterriezebos.com\"><strong>press@peterriezebos.com</strong></a></p><p><a href=\"http://localhost:4173/#\">presskit (pdf)</a></p>"
+          }
+        },
+        "collabs_JKhf9C": {
+          "type": "collabs",
+          "settings": {
+            "title": "COLLABS",
+            "text": "<p>Sed adipiscing ullamcorper adipiscing amet. Sed purus suspendisse ut id facilisi mattis eget. Velit eu etiam adipiscing lobortis. Felis hac a a netus. Turpis quam pharetra quam risus amet. Ac interdum duis id lacus integer. Non dapibus netus id varius.</p><p><a href=\"mailto:collabs@peterriezebos.com\"><strong>collabs@peterriezebos.com</strong></a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "inquiries_rAdJwL",
+        "press_FT7cjV",
+        "collabs_JKhf9C"
+      ],
       "name": "Contact",
-      "settings": {
-        "heading_type": "h2",
-        "title": "Want to connect, collaborate, or just stay in the loop?",
-        "text": "Reach out — Peter might be in Hardewijk, Amsterdam, L.A., or somewhere in between."
-      }
+      "settings": {}
     }
   },
   "order": [
     "hero_a7E3kt",
     "about_hF9tqU",
     "projects_aMicQr",
+    "projects_3gi4aN",
     "marquee_pLktDU",
     "contact_NrLFaW"
   ]
