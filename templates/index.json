@@ -11,9 +11,11 @@
   "sections": {
     "hero_a7E3kt": {
       "type": "hero",
-      "disabled": true,
       "name": "Hero",
       "settings": {
+        "top_image": "shopify://shop_images/pr-type-project-amor.png",
+        "main_image": "shopify://shop_images/pr-cover-image.jpg",
+        "video_file": "shopify://files/videos/pr-teaser-dummy.mp4",
         "title": "Peter Riezebos"
       }
     },
@@ -60,7 +62,8 @@
         "background_color": "#ff0000",
         "heading_type": "h2",
         "title": "About Me",
-        "text": "<p>Peter Riezebos is a Dutch-born, globally roaming artist whose work blends neo-expressionism with radical honesty. Inspired by Basquiat, Picasso, and chaos itself, his paintings are intense, intimate, and immersive. <br/><br/> No gimmicks. No compromise.</p>"
+        "text": "<p>Peter Riezebos is a Dutch-born, globally roaming artist whose work blends neo-expressionism with radical honesty. Inspired by Basquiat, Picasso, and chaos itself, his paintings are intense, intimate, and immersive. <br/><br/> No gimmicks. No compromise.</p>",
+        "signature": "shopify://shop_images/pr-signature.svg"
       }
     },
     "projects_aMicQr": {
