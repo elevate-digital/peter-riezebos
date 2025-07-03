@@ -1,5 +1,4 @@
 {{ 'projects.css' | asset_url | stylesheet_tag }}
-{{ 'projects.js' | asset_url | script_tag }}
 
 {% if section.settings.background_image != blank or section.settings.overlay_image != blank %}
   {% style %}
@@ -72,6 +71,7 @@
       </div>
     </div>
   </article>
+</section>
 
 {% schema %}
 {

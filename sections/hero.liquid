@@ -1,35 +1,31 @@
 {{ 'hero.css' | asset_url | stylesheet_tag }}
-{{ 'hero.js' | asset_url | script_tag }}
 
 <header class="hero">
-  {% if section.settings.title != blank %}
-    <h1 class="hero__heading">{{ section.settings.title }}</h1>
-  {% endif %}
+	{% if section.settings.title != blank %}
+	<h1 class="hero__heading">{{ section.settings.title }}</h1>
+	{% endif %}
 
-  {% if section.settings.top_image != blank %}
-    {{ section.settings.top_image | image_url: width: 1200 | image_tag: class: 'hero__type' }}
-  {% endif %}
+	{% if section.settings.top_image != blank %}
+	{{ section.settings.top_image | image_url: width: 1200 | image_tag: class: 'hero__type' }}
+	{% endif %}
 
-  {% if section.settings.main_image != blank %}
-    {{ section.settings.main_image | image_url: width: 1200 | image_tag: class: 'hero__portrait' }}
-  {% endif %}
+	{% if section.settings.main_image != blank %}
+	{{ section.settings.main_image | image_url: width: 1200 | image_tag: class: 'hero__portrait' }}
+	{% endif %}
 
-  {% if section.settings.video_file != blank %}
-    {{ section.settings.video_file | video_tag: autoplay: true, muted: true, loop: true, class: 'hero__video' }}
-  {% endif %}
-  
-  <div class="hero__bg"></div>
-  <div class="hero__scroll">
-    <a href="#about" class="scroll-indicator">
-      <div class="scroll-indicator__circle">
-        <img
-          src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M10%204.167v11.666m0%200%205-5m-5%205-5-5'%20stroke='%23555'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e"
-          alt="Scroll"
-          class="scroll-indicator__arrow"
-        >
-      </div>
-    </a>
-  </div>
+	{% if section.settings.video_file != blank %}
+	{{ section.settings.video_file | video_tag: autoplay: true, muted: true, loop: true, class: 'hero__video' }}
+	{% endif %}
+
+	<div class="hero__bg"></div>
+	<div class="hero__scroll">
+		<a href="#about" class="scroll-indicator">
+			<div class="scroll-indicator__circle">
+				<img src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M10%204.167v11.666m0%200%205-5m-5%205-5-5'%20stroke='%23555'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e"
+					alt="Scroll" class="scroll-indicator__arrow" width="20" height="20">
+			</div>
+		</a>
+	</div>
 </header>
 
 {% schema %}
